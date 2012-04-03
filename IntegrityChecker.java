@@ -87,18 +87,20 @@ public class IntegrityChecker implements Serializable {
 	}
 	
 	public static void addFile(Hashtable<String, Record> table, String filename){
-		Record = new Record();
-		Record.contentHash = checkFile(filename);
-		Record.lastupdate = System.currentTimeMillis;
-		table.put(filename,Record);		
+		IntegrityChecker inte = new IntegriyChecker();
+		Record newRecord = inte.new Record();
+		newRecord.contentHash = checkFile(filename);
+		newRecord.lastUpdate = System.currentTimeMillis();
+		table.put(filename,newRecord);		
 	}
 	
 	public static void updateFile(Hashtable<String, Record> table, String filename){
-		Record = new Record();
-		Record = table.get(filename);
-		Record.contentHast = checkFile(filename);
-		Record.lastupdate = System.currentTimeMillis;
-		table.get(file).equals(Record);
+		IntegrityChecker inte = new IntegrityChecker();
+		Record newRecord  = inte.new Record();
+		newRecord = table.get(filename);
+		newRecord.contentHash = checkFile(filename);
+		newRecord.lastUpdate = System.currentTimeMillis();
+		table.get(filename).equals(newRecord);
 	}
 	
 	public static void removeFile(Hashtable<String, Record> table, String filename){
