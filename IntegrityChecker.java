@@ -86,15 +86,15 @@ public class IntegrityChecker implements Serializable {
 		return new String(thedigest);
 	}
 	
-	public static void addFile(Hashtable<String, Record> table, String filename){
-		IntegrityChecker inte = new IntegriyChecker();
+	public static void addFile(Hashtable<String, Record> table, String filename) throws Exception{
+		IntegrityChecker inte = new IntegrityChecker();
 		Record newRecord = inte.new Record();
 		newRecord.contentHash = checkFile(filename);
 		newRecord.lastUpdate = System.currentTimeMillis();
 		table.put(filename,newRecord);		
 	}
 	
-	public static void updateFile(Hashtable<String, Record> table, String filename){
+	public static void updateFile(Hashtable<String, Record> table, String filename) throws Exception{
 		IntegrityChecker inte = new IntegrityChecker();
 		Record newRecord  = inte.new Record();
 		newRecord = table.get(filename);
